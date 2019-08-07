@@ -1,10 +1,15 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import routes from './Routes';
 
 function App() {
   return (
-    <React.Fragment>
-      <h1>Hola Mundo</h1>  
-    </React.Fragment>
+    <Router>
+     {/* TODO: Navbar */}   
+      <Switch>
+        { routes }
+      </Switch>
+    </Router>
   );
 }
 
