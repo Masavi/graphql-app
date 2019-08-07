@@ -29,7 +29,7 @@ export default class Navbarcito extends Component {
     return (
       <div>
         <Navbar color="dark" light expand="md">
-          <NavbarBrand href="/">
+          <NavbarBrand>
             <Link
               style={{
                 textDecoration: 'none',

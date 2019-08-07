@@ -7,9 +7,11 @@ function App() {
   return (
     <Router>
       <Navbarcito />
-      <Switch>
-        { routes }
-      </Switch>
+      <div className="container mt-4">
+        <Switch>
+            { routes }
+        </Switch>
+      </div>
     </Router>
   );
 }
