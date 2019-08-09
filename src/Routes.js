@@ -2,10 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import Home from './components/Home';
 import Signup from './components/Signup';
-
-const Login = () => {
-    return <h1>Login</h1>;
-};
+import Login from './components/Login';
 
 const Logout = () => {
     return <h1>Logout</h1>;
