@@ -21,13 +21,19 @@ import PropTypes from 'prop-types';
      render() { 
         return ( 
             <React.Fragment>
-                <input id={this.props.id} type={this.props.type} 
-                    className="validate"
-                    value={this.props.value}
-                    required={this.props.required}
-                    onChange={this.props.setInput}
-                />
-                <label htmlFor={this.props.id}>{this.props.name}</label>
+            
+                <div className='d-flex flex-column mb-2'>
+                    <span 
+                        className='mb-2'
+                        htmlFor={this.props.id}>
+                        {this.props.name}
+                    </span>
+                    <input id={this.props.id} type={this.props.type} 
+                        className="validate"
+                        value={this.props.value}
+                        required={this.props.required}
+                        onChange={this.props.setInput}/>
+                </div>
             </React.Fragment>
          );
     }
