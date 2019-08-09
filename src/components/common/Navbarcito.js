@@ -40,6 +40,16 @@ export default class Navbarcito extends Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
+            <NavItem>
+                <NavLink>
+                  <Link 
+                    style={{
+                      textDecoration: 'none',
+                      color: 'white'
+                    }}
+                    to="/signup">Signup</Link>
+                </NavLink>
+              </NavItem>
               <NavItem>
                 <NavLink>
                   <Link

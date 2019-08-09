@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
-import Navbarcito from './components/Navbarcito';
+import Navbarcito from './components/common/Navbarcito';
 import routes from './Routes';
 
 function App() {
