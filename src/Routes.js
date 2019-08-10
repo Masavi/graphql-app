@@ -1,12 +1,14 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Redirect ,Route } from 'react-router-dom';
 import Home from './components/Home';
 import Signup from './components/Signup';
 import Login from './components/Login';
 
 const Logout = () => {
-    return <h1>Logout</h1>;
-};
+    localStorage.removeItem("mawiToken");
+    alert('Has cerrado sesión');
+    return <Redirect to='/login'/>
+}
 
 const NotFound = () => <h1>No existe la página!!!</h1>;
 
