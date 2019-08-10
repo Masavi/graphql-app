@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { isAuthenticated } from '../../utils';
 
 import {
   Collapse,
@@ -16,14 +17,50 @@ import {
 
 export default class Navbarcito extends Component {
   state = {
-    isOpen: false
+    isOpen: false,
+    auth: isAuthenticated()
   }
 
-  toggle = () => {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  }
+  renderAuth = () => {
+    console.log(this.state.auth);
+    if( !this.state.auth ){
+      return <React.Fragment>
+                <NavItem>
+                  <NavLink>
+                    <Link 
+                      style={{
+                        textDecoration: 'none',
+                        color: 'white'
+                      }}
+                      to="/signup">Signup</Link>
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink>
+                    <Link
+                      style={{
+                        textDecoration: 'none',
+                        color: 'white'
+                      }} 
+                      to="/login">Login</Link>
+                  </NavLink>
+                </NavItem>
+              </React.Fragment>
+    } else {
+      return <React.Fragment>
+      <NavItem>
+        <NavLink>
+          <Link 
+            style={{
+              textDecoration: 'none',
+              color: 'white'
+            }}
+            to="/logout">Logout</Link>
+        </NavLink>
+      </NavItem>
+    </React.Fragment>
+    }
+    }
   
   render() {
     return (
@@ -40,36 +77,7 @@ export default class Navbarcito extends Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-            <NavItem>
-                <NavLink>
-                  <Link 
-                    style={{
-                      textDecoration: 'none',
-                      color: 'white'
-                    }}
-                    to="/signup">Signup</Link>
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink>
-                  <Link
-                    style={{
-                      textDecoration: 'none',
-                      color: 'white'
-                    }} 
-                    to="/login">Login</Link>
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink>
-                  <Link 
-                    style={{
-                      textDecoration: 'none',
-                      color: 'white'
-                    }}
-                    to="/logout">Logout</Link>
-                </NavLink>
-              </NavItem>
+              { this.renderAuth() }
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle 
                 style={{
