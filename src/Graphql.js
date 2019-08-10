@@ -10,7 +10,7 @@ import { createUploadLink } from 'apollo-upload-client';
 })
 
  const authLink = setContext((_,{headers})=>{
-    const token = localStorage.getItem('appToken');
+    const token = localStorage.getItem('mawiToken');
     return {
         headers: {
             ...headers,
