@@ -8,6 +8,7 @@ const LOGIN = gql`
     mutation LOGIN($email: String!, $password: String!){
         login(email: $email, password: $password){
             token
+            message
         }
     }
 `
@@ -33,14 +34,29 @@ class Login extends Component {
         }});
     }
 
+    handleData = (data) => {
+        if (data.login.token === 'ERROR'){
+            alert('Error en login...');
+            return false;
+        }
+        localStorage.setItem('mawiToken', data.login.token) 
+        alert('Sesión iniciada exitosamente!');
+        this.props.history.push('/');
+    }
+
+    handleError = (error) => {
+        console.log(error);
+        alert('Error en login...');
+    }
+
     render() { 
         return (
             <Mutation mutation={LOGIN}>
                 {
                     (login, {data, error, loading}) => {
                         if (loading) console.log(loading);
-                        if (data) console.log(data);
-                        if (error) console.log(error)
+                        if (data) this.handleData(data);
+                        if (error) this.handleError(error);
                         return ( 
                             <React.Fragment>
                                 <h1>Login</h1>
